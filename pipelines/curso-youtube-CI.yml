@@ -1,0 +1,35 @@
+trigger:
+  branches:
+    include: 
+    - master
+
+variables:
+- group: curso-arm
+
+stages:
+
+# Build Stage
+- stage: BuildAndTest
+  jobs:
+  - job: BuildAndTest
+    pool:
+      vmImage: 'Ubuntu-16.04'
+
+    steps:   
+    - task: Docker@2
+      displayName: Build an image
+      inputs:
+        buildContext: '$(Build.SourcesDirectory)'
+        command: build
+        Dockerfile: curso-arm-docker-mvc/Dockerfile
+        tags: $(imageName)-$(Build.BuildId)
+        
+    - task: Docker@2
+      displayName: Build an image
+      inputs:
+        buildContext: '$(Build.SourcesDirectory)'
+        repository: $(imageName)
+        containerRegistry: ejemploYoutube
+        command: buildAndPush
+        Dockerfile: curso-arm-docker-mvc/Dockerfile
+        tags: $(imageName)-$(Build.BuildId)

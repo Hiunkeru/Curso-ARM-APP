@@ -1,0 +1,33 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "hostingPlanName": {
+      "value": "hpejemplo"
+    },
+    "acr_registry_name": {
+      "value": "acrejemplo"
+    },
+    "prefix": {
+      "value": "dev"
+    },
+    "api_appservice_name": {
+      "value": "web-app-ejemplo"
+    },
+    "sqlserver_name": {
+      "value": "ejemplosqlserver"
+    },
+    "administratorLogin": {
+      "value": "aytadmin"
+    },
+    "administratorLoginPassword": {
+      "value": "HADJMRDFpupJ12@@"
+    },
+    "databaseName": {
+      "value": "EjemploDDBB"
+    },
+    "location": {
+      "value": "westeurope"
+    }
+  }
+}

@@ -1,0 +1,9 @@
+﻿version: '3'
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: ./curso-arm-docker-mvc/Dockerfile
+    ports:
+      - 5000:80
